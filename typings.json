@@ -1,5 +1,8 @@
 {
-  "dependencies": {
-    "npm-xml2json": "github:types/npm-xml2json"
+  "globalDependencies": {
+    "empower": "registry:dt/empower",
+    "power-assert-formatter": "registry:dt/power-assert-formatter",
+    "power-assert": "registry:dt/power-assert",
+    "mocha": "registry:dt/mocha"
   }
 }

@@ -16,6 +16,8 @@
   },
   "include": [
     "./app/**/*.ts",
+    "./test/**/*.ts",
+    "./own-typings/index.d.ts",
     "./typings/index.d.ts"
   ],
   "exclude": [

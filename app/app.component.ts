@@ -14,28 +14,45 @@ import {AppStore} from './app.store';
     >
     <button
       (click)="onClickImport()"
-      [attr.disabled]="disableImport ? true : null"
+      [attr.disabled]="importStr === '' ? true : null"
     >
       Import
     </button>
+    
+    <div *ngIf="0 < paletteKeys.length">
+      <h2>Palette</h2>
+      <se-palette
+        *ngFor="let key of paletteKeys"
+        [key]="key"
+        [value]="palette[key]"
+      ></se-palette>
+    </div>
   `
 })
 export class AppComponent {
 
+  private palette: {[key: string]: any};
+  private paletteKeys: string[];
+  private importStr = '';
+
   constructor(private actions: AppActions,
               private dispatcher: AppDispatcher,
               private store: AppStore) {
-    this.store.observable.subscribe((s) => {
-      console.log(s);
-    });
+    this.store.getColorPalette()    .subscribe((s) => this.palette = s);
+    this.store.getColorPaletteKeys().subscribe((s) => this.paletteKeys = s);
   }
 
   onResultInputFile(result: string | null): void {
-    this.dispatcher.emit(this.actions.importStyle(result));
+    this.importStr = result || '';
   }
 
   onClickImport(): void {
-    console.log(`onClickImport`);
+    if (this.importStr === '') {
+      return;
+    }
+
+    this.dispatcher.emit(this.actions.importStyle(this.importStr));
+    this.importStr = '';
   }
 
 }

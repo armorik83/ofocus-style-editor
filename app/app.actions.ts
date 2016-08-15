@@ -1,27 +1,25 @@
-import { Injectable } from '@angular/core';
-import { Action, Next } from 'walts';
+import {Injectable} from '@angular/core';
+import {Action, SyncNext} from 'walts';
 
-import { AppState } from './app.store';
+import {AppState} from './app.store';
+import {StyleParser} from './style-parser.service';
+import {OFocusStyle} from './ofocus-style';
 
 @Injectable()
 export class AppActions extends Action<AppState> {
 
-  constructor() {
+  constructor(private parser: StyleParser) {
     super();
   }
 
-  importStyle(xmlString: string | null): Next<AppState> {
-    return (state) => {
-      if (!xmlString) {
-        return {
-          xml: ''
-        } as AppState;
-      }
-
-      return {
-        xml: xmlString
-      } as AppState;
-    };
+  importStyle(styleString: string): Promise<SyncNext<AppState>> {
+    return new Promise<SyncNext<AppState>>((resolve) => {
+      this.parser.parse(styleString).then((styleObj: OFocusStyle) => {
+        resolve((state) => ({
+          style: styleObj
+        } as AppState));
+      });
+    });
   }
 
 }

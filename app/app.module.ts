@@ -6,6 +6,9 @@ import {AppComponent} from './app.component';
 import {AppActions} from './app.actions';
 import {AppDispatcher} from './app.dispatcher';
 import {AppStore} from './app.store';
+import {ParserProvider} from './parser-provider.service';
+import {StyleParser} from './style-parser.service';
+import {PaletteComponent} from './palette.component';
 
 @NgModule({
   imports: [
@@ -13,12 +16,15 @@ import {AppStore} from './app.store';
   ],
   declarations: [
     InputFileDirective,
-    AppComponent
+    AppComponent,
+    PaletteComponent
   ],
   providers: [
     AppActions,
     AppDispatcher,
-    AppStore
+    AppStore,
+    ParserProvider,
+    StyleParser
   ],
   bootstrap: [AppComponent]
 })
