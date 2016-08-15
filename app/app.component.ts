@@ -23,8 +23,9 @@ import {AppStore} from './app.store';
       <h2>Palette</h2>
       <se-palette
         *ngFor="let key of paletteKeys"
-        [key]="key"
-        [value]="palette[key]"
+        [key]   ="key"
+        [parent]="['colorPalette']"
+        [value] ="palette[key]"
       ></se-palette>
     </div>
   `
@@ -38,6 +39,7 @@ export class AppComponent {
   constructor(private actions: AppActions,
               private dispatcher: AppDispatcher,
               private store: AppStore) {
+    this.store.observable.subscribe((s) => console.log(s));
     this.store.getColorPalette()    .subscribe((s) => this.palette = s);
     this.store.getColorPaletteKeys().subscribe((s) => this.paletteKeys = s);
   }

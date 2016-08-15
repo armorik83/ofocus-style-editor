@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
 
 import {InputFileDirective} from './input-file.directive';
 import {AppComponent} from './app.component';
@@ -9,10 +10,12 @@ import {AppStore} from './app.store';
 import {ParserProvider} from './parser-provider.service';
 import {StyleParser} from './style-parser.service';
 import {PaletteComponent} from './palette.component';
+import {ColorService} from './color.service';
 
 @NgModule({
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   declarations: [
     InputFileDirective,
@@ -23,6 +26,7 @@ import {PaletteComponent} from './palette.component';
     AppActions,
     AppDispatcher,
     AppStore,
+    ColorService,
     ParserProvider,
     StyleParser
   ],

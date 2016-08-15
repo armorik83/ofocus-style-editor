@@ -8,11 +8,13 @@
     "@angular/common": "^2.0.0-rc.5",
     "@angular/compiler": "^2.0.0-rc.5",
     "@angular/core": "^2.0.0-rc.5",
+    "@angular/forms": "^0.3.0",
     "@angular/platform-browser": "^2.0.0-rc.5",
     "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
     "core-js": "^2.4.1",
     "plist": "git@github.com:armorik83/plist.js.git",
     "rxjs": "^5.0.0-beta.11",
+    "tinycolor2": "^1.4.1",
     "walts": "^0.9.0-beta.1",
     "zone.js": "^0.6.12"
   },

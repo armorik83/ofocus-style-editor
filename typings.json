@@ -1,8 +1,9 @@
 {
   "globalDependencies": {
     "empower": "registry:dt/empower",
-    "power-assert-formatter": "registry:dt/power-assert-formatter",
+    "mocha": "registry:dt/mocha",
     "power-assert": "registry:dt/power-assert",
-    "mocha": "registry:dt/mocha"
+    "power-assert-formatter": "registry:dt/power-assert-formatter",
+    "tinycolor2": "registry:dt/tinycolor#1.1.1+20160317120654"
   }
 }

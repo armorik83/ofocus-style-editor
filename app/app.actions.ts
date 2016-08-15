@@ -22,4 +22,16 @@ export class AppActions extends Action<AppState> {
     });
   }
 
+  updateStyle(path: string[], value: any): SyncNext<AppState> {
+    return (state) => {
+      path.reduce((obj, key, idx) => {
+        if (path.length - 1 === idx) {
+          obj[key] = value;
+        }
+        return obj[key];
+      }, state.style as any);
+      return state;
+    };
+  }
+
 }
