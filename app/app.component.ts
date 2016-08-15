@@ -18,6 +18,13 @@ import {AppStore} from './app.store';
     >
       Import
     </button>
+
+    <button
+      *ngIf="0 < paletteKeys.length"
+      (click)="onClickExport()"
+    >
+      Export
+    </button>
     
     <div *ngIf="0 < paletteKeys.length">
       <h2>Palette</h2>
@@ -55,6 +62,10 @@ export class AppComponent {
 
     this.dispatcher.emit(this.actions.importStyle(this.importStr));
     this.importStr = '';
+  }
+
+  onClickExport(): void {
+    this.dispatcher.emit(this.actions.exportStyle());
   }
 
 }

@@ -11,6 +11,8 @@ import {ParserProvider} from './parser-provider.service';
 import {StyleParser} from './style-parser.service';
 import {PaletteComponent} from './palette.component';
 import {ColorService} from './color.service';
+import {BuilderProvider} from './builder-provider.service';
+import {StyleBuilder} from './style-builder.service';
 
 @NgModule({
   imports: [
@@ -28,7 +30,9 @@ import {ColorService} from './color.service';
     AppStore,
     ColorService,
     ParserProvider,
-    StyleParser
+    BuilderProvider,
+    StyleParser,
+    StyleBuilder
   ],
   bootstrap: [AppComponent]
 })

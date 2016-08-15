@@ -3,8 +3,7 @@ import * as plist from 'plist';
 
 export class Parser {
 
-  parse(source: string): Promise<Object> {
-    const parser = new DOMParser();
+  parse(source: string): Promise<Object> {;
     return Promise.resolve(plist.parse(source) as Object);
   }
 

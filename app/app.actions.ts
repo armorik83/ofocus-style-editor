@@ -4,11 +4,13 @@ import {Action, SyncNext} from 'walts';
 import {AppState} from './app.store';
 import {StyleParser} from './style-parser.service';
 import {OFocusStyle} from './ofocus-style';
+import {StyleBuilder} from './style-builder.service';
 
 @Injectable()
 export class AppActions extends Action<AppState> {
 
-  constructor(private parser: StyleParser) {
+  constructor(private parser: StyleParser,
+              private builder: StyleBuilder) {
     super();
   }
 
@@ -32,6 +34,17 @@ export class AppActions extends Action<AppState> {
       }, state.style as any);
       return state;
     };
+  }
+
+  exportStyle(): Promise<SyncNext<AppState>> {
+    return new Promise<SyncNext<AppState>>((resolve) => {
+      resolve((state) => {
+        this.builder.build(state.style).then((plist: string) => {
+          console.log(plist);
+        });
+        return state;
+      });
+    });
   }
 
 }
