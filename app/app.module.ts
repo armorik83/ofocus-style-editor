@@ -3,6 +3,9 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {InputFileDirective} from './input-file.directive';
 import {AppComponent} from './app.component';
+import {AppActions} from './app.actions';
+import {AppDispatcher} from './app.dispatcher';
+import {AppStore} from './app.store';
 
 @NgModule({
   imports: [
@@ -11,6 +14,11 @@ import {AppComponent} from './app.component';
   declarations: [
     InputFileDirective,
     AppComponent
+  ],
+  providers: [
+    AppActions,
+    AppDispatcher,
+    AppStore
   ],
   bootstrap: [AppComponent]
 })
