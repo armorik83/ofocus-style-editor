@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+
+import {InputFileDirective} from './input-file.directive';
 import {AppComponent} from './app.component';
 
 @NgModule({
@@ -7,6 +9,7 @@ import {AppComponent} from './app.component';
     BrowserModule
   ],
   declarations: [
+    InputFileDirective,
     AppComponent
   ],
   bootstrap: [AppComponent]
