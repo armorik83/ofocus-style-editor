@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "npm-xml2json": "github:types/npm-xml2json"
+  }
+}

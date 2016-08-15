@@ -15,7 +15,8 @@
     "outDir": "./.tmp"
   },
   "include": [
-    "./app/**/*.ts"
+    "./app/**/*.ts",
+    "./typings/index.d.ts"
   ],
   "exclude": [
     "node_modules"
