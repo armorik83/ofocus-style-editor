@@ -6,7 +6,7 @@ OmniFocus 2.5+ Style plist editor
 - Clone this.
 - `npm i`
 - `npm run build`
-- `npm start
+- `npm start`
 - Open http://127.0.0.1:8080 in your browser.
 - Click [Choose file] -> [Import]
 - Anything you like.
